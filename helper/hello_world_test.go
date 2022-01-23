@@ -9,6 +9,19 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+// BenchmarkHelloWorld
+func BenchmarkHelloWorldAndre(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		HelloWorld("Andre")
+	}
+}
+
+func BenchmarkHelloWorldMaesha(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		HelloWorld("Maesha")
+	}
+}
+
 // Table Test
 func TestTableHelloWorld(t *testing.T) {
 	tests := []struct {
@@ -63,7 +76,7 @@ func TestSubTest(t *testing.T) {
 	t.Run("Maesha", func(*testing.T) {
 		var result string = HelloWorld("Maesha")
 
-		require.Equal(t, "Hai Maesha", result, "Result must be 'Hello Maesha'")
+		require.Equal(t, "Hello Maesha", result, "Result must be 'Hello Maesha'")
 	})
 }
 
